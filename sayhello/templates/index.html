@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block title %}Index{%endblock%}
+
+{% block content %}
+<div>
+  <h3>
+    {{messages|length}} messages
+    <small class="float-right">
+      <a href="#bottom" title="Go Bottom">
+        <font color="green">返回底部</font>
+      </a>
+    </small>
+  </h3>
+</div>
+
+
+<div class="sayhello">
+  <div>
+    <form method="POST">
+      <!--启动CSRF-->
+      {{ form.hidden_tag() }}
+      <p id=rcorners1>name：{{ form.name }}</p>
+      <p id=rcorners1>body：{{ form.body }}</p>
+      <p><button type="submit">提交</button></p>
+    </form>
+  </div>
+</div>
+<div>
+  {% for message in messages %}
+  <p id=rcorners2>
+    <font color="blue">#{{loop.revindex}}</font>
+
+    <b>
+      <font color="purple" size=4>{{ message.name }}:</font>
+    </b>
+    <br>
+    {{ message.body }}
+  </p>
+  {%endfor%}
+</div>
+
+
+{%endblock%}
+
+
+
+
+
+<!-- <div ng-app="myApp" ng-controller="myCtrl">
+  名字: <input ng-model="carname" />
+  <h1>{{ carname }}</h1>
+</div>
+
+<script>
+  var app = angular.module("myApp", [test]);
+  app.controller("myCtrl", function ($scope) {
+    $scope.carname = "2";
+  });
+</script>  -->

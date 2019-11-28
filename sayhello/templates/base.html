@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Say Hello!{% endblock %}</title>
+    <!-- <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+     -->
+    <style>
+        #rcorners1 {
+            border-radius: 25 px;
+            background: #8AC007;
+            padding: 20px;
+            width: 200px;
+            height: 40px;
+        }
+
+        #rcorners2 {
+            border-radius: 25px;
+            border: 2px solid #8AC007;
+            padding: 20px;
+            width: 200px;
+            height: 50px;
+        }
+
+        #rcorners3 {
+            border-radius: 25px;
+            background: url(paper.gif);
+            background-position: left top;
+            background-repeat: repeat;
+            padding: 20px;
+            width: 200px;
+            height: 150px;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <h1>
+        <a href="{{url_for('index')}}"><strong>留言</strong></a>
+        板
+    </h1>
+
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+
+    {%block content%}
+    {% endblock %}
+
+    {% block footer %}
+    <hr>
+    <p>
+        <b>
+            <font color="blue">Thanks for your feedback</font>
+
+        </b>
+        <!-- <p><a id="bottom" href="#" title="Go Top">&uarr;</a></p> -->
+        <p><a id="bottom" href="#">
+                <font color="green">返回顶部</font>
+
+            </a></p>
+    </p>
+    {% endblock%}
+</body>
+
+</html>
