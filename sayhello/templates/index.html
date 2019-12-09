@@ -2,32 +2,33 @@
 {% block title %}Index{%endblock%}
 
 {% block content %}
+
+
+
 <div>
-  <h3>
+  <form method="POST">
+    <!--启动CSRF-->
+    {{ form.hidden_tag() }}
+    <p id=rcorners1 class="center">name：{{ form.name }}</p>
+    <p id=rcorners1 class="center">body：{{ form.body }}</p>
+    <p style="text-align:center;margin-left:50%"><button class="button" type="submit">提交</button></p>
+  </form>
+</div>
+<div>
+  <h3 style="text-align:center;margin-left:40%">
     {{messages|length}} messages
-    <small class="float-right">
-      <a href="#bottom" title="Go Bottom">
-        <font color="green">返回底部</font>
-      </a>
-    </small>
+    <a href=" #bottom" title="Go Bottom">
+      <font color="green">返回底部</font>
+    </a>
   </h3>
 </div>
 
-
-<div class="sayhello">
-  <div>
-    <form method="POST">
-      <!--启动CSRF-->
-      {{ form.hidden_tag() }}
-      <p id=rcorners1>name：{{ form.name }}</p>
-      <p id=rcorners1>body：{{ form.body }}</p>
-      <p><button type="submit">提交</button></p>
-    </form>
-  </div>
-</div>
-<div>
+<!-- 调用上下文处理器获取到的数据 -->
+<!-- number={{number}}
+admin={{admin}} -->
+<div class="center-in-center">
   {% for message in messages %}
-  <p id=rcorners2>
+  <p class="center">
     <font color="blue">#{{loop.revindex}}</font>
 
     <b>
@@ -41,19 +42,3 @@
 
 
 {%endblock%}
-
-
-
-
-
-<!-- <div ng-app="myApp" ng-controller="myCtrl">
-  名字: <input ng-model="carname" />
-  <h1>{{ carname }}</h1>
-</div>
-
-<script>
-  var app = angular.module("myApp", [test]);
-  app.controller("myCtrl", function ($scope) {
-    $scope.carname = "2";
-  });
-</script>  -->

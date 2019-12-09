@@ -10,6 +10,43 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
      -->
     <style>
+        .center {
+            margin: auto;
+            width: 60%;
+            border: 3px solid #73AD21;
+            padding: 10px;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 40px 2px;
+            cursor: pointer;
+        }
+
+        .button1 {
+            background-color: #4CAF50;
+            border: none;
+            color: blue;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 40px 2px;
+            cursor: pointer;
+        }
+
+        /* h1 {
+            text-align: center
+        } */
+
         #rcorners1 {
             border-radius: 25 px;
             background: #8AC007;
@@ -17,38 +54,19 @@
             width: 200px;
             height: 40px;
         }
-
-        #rcorners2 {
-            border-radius: 25px;
-            border: 2px solid #8AC007;
-            padding: 20px;
-            width: 200px;
-            height: 50px;
-        }
-
-        #rcorners3 {
-            border-radius: 25px;
-            background: url(paper.gif);
-            background-position: left top;
-            background-repeat: repeat;
-            padding: 20px;
-            width: 200px;
-            height: 150px;
-        }
     </style>
-
 </head>
 
 
 <body>
-    <h1>
+    <h1 style="text-align:center">
         <a href="{{url_for('index')}}"><strong>留言</strong></a>
         板
     </h1>
 
     {% for message in get_flashed_messages() %}
-    <div class="alert alert-info">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <div style="text-align:center">
+        <button class="button" data-dismiss="alert">&times;</button>
         {{ message }}
     </div>
     {% endfor %}
@@ -58,16 +76,16 @@
 
     {% block footer %}
     <hr>
-    <p>
+    <p style="text-align:center">
         <b>
             <font color="blue">Thanks for your feedback</font>
 
         </b>
-        <!-- <p><a id="bottom" href="#" title="Go Top">&uarr;</a></p> -->
-        <p><a id="bottom" href="#">
-                <font color="green">返回顶部</font>
+        <br>
+        <a id="bottom" href="#">
+            <font color="green">返回顶部</font>
 
-            </a></p>
+        </a>
     </p>
     {% endblock%}
 </body>
